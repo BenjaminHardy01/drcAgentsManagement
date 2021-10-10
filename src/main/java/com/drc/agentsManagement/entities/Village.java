@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -19,7 +20,7 @@ import java.io.Serializable;
 @ToString
 public class Village implements Serializable {
     @Id
-    private String villageId;
+    private String villageId = UUID.randomUUID().toString();
     private String villageName;
     private Long population;
     @ManyToOne

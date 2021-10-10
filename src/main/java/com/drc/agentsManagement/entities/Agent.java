@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -20,7 +22,7 @@ import java.time.LocalDate;
 @ToString
 public class Agent implements Serializable {
     @Id
-    private String agentId;
+    private String agentId = UUID.randomUUID().toString();
     private String agentFirstName;
     private String agentMiddleName;
     private String agentLastName;

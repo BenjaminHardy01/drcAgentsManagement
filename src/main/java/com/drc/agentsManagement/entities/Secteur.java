@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -21,7 +22,7 @@ import java.util.List;
 @ToString
 public class Secteur implements Serializable {
     @Id
-    private String secteurId;
+    private String secteurId = UUID.randomUUID().toString();
     private String secteurName;
     @ManyToOne
     @JoinColumn(name = "terre_id")

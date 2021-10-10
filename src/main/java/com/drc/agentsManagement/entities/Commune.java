@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -22,7 +23,7 @@ import java.util.List;
 @ToString
 public class Commune implements Serializable {
     @Id
-    private String commId;
+    private String commId = UUID.randomUUID().toString();
     private String commName;
     @ManyToOne
     @JoinColumn(name = "ville_id")

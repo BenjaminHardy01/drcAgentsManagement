@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -19,7 +20,7 @@ import java.util.List;
 @ToString
 public class Province implements Serializable {
     @Id
-    private String provinceId;
+    private String provinceId = UUID.randomUUID().toString();
     private String provinceName;
     @OneToMany(mappedBy = "province")
     private List<Ville> villes;

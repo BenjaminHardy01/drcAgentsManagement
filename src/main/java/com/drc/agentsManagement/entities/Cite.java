@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -22,7 +23,7 @@ import java.util.List;
 @ToString
 public class Cite implements Serializable {
     @Id
-    private String citeId;
+    private String citeId = UUID.randomUUID().toString();
     private String citeName;
     @ManyToOne
     @JoinColumn(name = "territoire_id")

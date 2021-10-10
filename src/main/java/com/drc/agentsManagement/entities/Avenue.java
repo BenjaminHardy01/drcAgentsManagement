@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.UUID;
 
 
 @Entity
@@ -21,7 +22,7 @@ import java.io.Serializable;
 @ToString
 public class Avenue implements Serializable {
     @Id
-    private String avenueId;
+    private String avenueId = UUID.randomUUID().toString();
     private String avenueName;
     @ManyToOne
     @JoinColumn(name = "quartier_id")
