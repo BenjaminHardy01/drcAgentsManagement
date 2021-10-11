@@ -29,10 +29,6 @@ public class CategorieServiceImpl implements CategorieService {
 
     @Override
     public void deleteCat(String id) {
-        try {
             categorieRepository.deleteById(id);
-        } catch (Exception e) {
-         System.out.println("not found");
-        }
     }
 }
