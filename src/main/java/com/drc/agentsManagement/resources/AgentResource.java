@@ -15,6 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AgentResource {
+
     @Autowired
     private AgentService agentService;
     @PostMapping("/agents")
@@ -30,6 +31,10 @@ public class AgentResource {
     @GetMapping("/agents/{id}")
     public Agent getAgent(@PathVariable String id) {
         return agentService.getAgent(id);
+    }
+
+    public Agent updateAgent(Agent agent) {
+        return agentService.updateAgent(agent);
     }
 
     @DeleteMapping("/agents/{id}")

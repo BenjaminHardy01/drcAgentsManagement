@@ -27,4 +27,6 @@ public class Avenue implements Serializable {
     @ManyToOne
     @JoinColumn(name = "quartier_id")
     private Quartier quartier;
+
+
 }

@@ -1,6 +1,7 @@
 package com.drc.agentsManagement.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,8 @@ public class Commune implements Serializable {
     @OneToMany(mappedBy = "commune")
     private List<Quartier> quartiers;
 
+    @JsonIgnore
+    public List<Quartier> getQuartiers() {
+        return quartiers;
+    }
 }

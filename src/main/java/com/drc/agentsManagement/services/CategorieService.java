@@ -8,5 +8,6 @@ public interface CategorieService {
     public Categorie saveCat(Categorie cat);
     public List<Categorie> getAllCat();
     public Categorie getCat(String id);
-    public void deleteCat(String id);
+    public Categorie updateCat(Categorie cat);
+    public boolean deleteCat(String id);
 }

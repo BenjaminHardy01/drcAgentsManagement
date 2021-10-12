@@ -30,7 +30,18 @@ public class AgentServiceImpl implements AgentService{
     }
 
     @Override
-    public void deleteAgent(String id) {
-        agentRepository.deleteById(id);
+    public Agent updateAgent(Agent agent) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteAgent(String id) {
+        try {
+            agentRepository.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }
