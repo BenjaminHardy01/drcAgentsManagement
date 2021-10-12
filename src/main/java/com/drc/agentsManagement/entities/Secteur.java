@@ -1,5 +1,6 @@
 package com.drc.agentsManagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +30,9 @@ public class Secteur implements Serializable {
     private Territoire territoire;
     @OneToMany(mappedBy = "secteur")
     private List<Groupement> groupements;
+
+    @JsonIgnore
+    public List<Groupement> getGroupements() {
+        return groupements;
+    }
 }

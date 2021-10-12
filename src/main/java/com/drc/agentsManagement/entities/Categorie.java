@@ -25,9 +25,11 @@ public class Categorie implements Serializable {
     private String catId = UUID.randomUUID().toString();
     private String catName;
     private String catDescription;
-    @JsonIgnore
     @OneToMany(mappedBy = "categorie")
     private List<Agent> agents;
 
-
+    @JsonIgnore
+    public List<Agent> getAgents() {
+        return agents;
+    }
 }

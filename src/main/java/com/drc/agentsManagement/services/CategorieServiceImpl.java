@@ -28,7 +28,19 @@ public class CategorieServiceImpl implements CategorieService {
     }
 
     @Override
-    public void deleteCat(String id) {
+    public Categorie updateCat(Categorie cat) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteCat(String id) {
+
+        try {
             categorieRepository.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

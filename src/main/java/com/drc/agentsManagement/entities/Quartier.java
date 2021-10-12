@@ -1,5 +1,6 @@
 package com.drc.agentsManagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,4 +33,9 @@ public class Quartier implements Serializable {
     private Cite cite;
     @OneToMany(mappedBy = "quartier")
     private List<Avenue> avenues;
+
+    @JsonIgnore
+    public List<Avenue> getAvenues() {
+        return avenues;
+    }
 }

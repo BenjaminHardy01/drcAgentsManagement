@@ -8,4 +8,6 @@ public interface CiteService {
     public Cite saveCite(Cite cite);
     public List<Cite> getAllCities();
     public Cite getCite(String id);
+    public Cite updateCite(Cite cite);
+    public boolean deleteCite(String id);
 }
