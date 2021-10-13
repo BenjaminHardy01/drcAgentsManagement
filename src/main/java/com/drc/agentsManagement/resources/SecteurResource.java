@@ -34,8 +34,9 @@ public class SecteurResource {
     public Secteur updateSect(Secteur secteur) {
         return secteurService.updateSect(secteur);
     }
+
     @DeleteMapping("/secteurs/{id}")
-    public boolean deleteSect(String id) {
+    public boolean deleteSect(@PathVariable String id) {
         return secteurService.deleteSect(id);
     }
 }

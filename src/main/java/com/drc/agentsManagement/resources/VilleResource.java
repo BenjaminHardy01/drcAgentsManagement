@@ -35,8 +35,9 @@ public class VilleResource {
     public Ville updateVille(Ville ville) {
         return villeService.updateVille(ville);
     }
+
     @DeleteMapping("/villes/{id}")
-    public boolean deleteVille(String id) {
+    public boolean deleteVille(@PathVariable String id) {
         return villeService.deleteVille(id);
     }
 }
