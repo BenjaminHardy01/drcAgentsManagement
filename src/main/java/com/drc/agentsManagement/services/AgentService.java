@@ -8,6 +8,11 @@ public interface AgentService {
     public Agent saveAgent(Agent agent);
     public List<Agent> getAgentsList();
     public Agent getAgent(String id);
-    public Agent updateAgent(Agent agent);
+    public int updateAgent(Agent agent);
+    public int updateAgentCategorie(Agent agent);
+    public int updateAgentProvince(Agent agent);
+    public List<Agent> getAgentsByCategorie(String catId);
+    public List<Agent> getAgentsByProvince(String provId);
+    public List<Agent> getAgentByLastName(String keyword);
     public boolean deleteAgent(String id);
 }
