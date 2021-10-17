@@ -27,8 +27,23 @@ public class GroupementServiceImpl implements GroupementService{
     }
 
     @Override
-    public Groupement updateGroupe(Groupement groupement) {
-        return null;
+    public int updateGroupe(Groupement groupement) {
+        return groupementRepository.updateGroupement(groupement.getGroupeId(),groupement.getGroupeName());
+    }
+
+    @Override
+    public int updateGroupementSecteur(Groupement groupement) {
+        return groupementRepository.updateGroupementSecteur(groupement.getGroupeId(),groupement.getSecteur().getSecteurId());
+    }
+
+    @Override
+    public List<Groupement> getGroupementsBySecteur(String sectId) {
+        return groupementRepository.getGroupementsBySecteur(sectId);
+    }
+
+    @Override
+    public List<Groupement> getGroupementsByName(String keyword) {
+        return groupementRepository.getGroupementsByName(keyword);
     }
 
     @Override

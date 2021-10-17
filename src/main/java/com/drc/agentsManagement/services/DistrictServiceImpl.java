@@ -27,8 +27,18 @@ public class DistrictServiceImpl implements DistrictService{
     }
 
     @Override
-    public District updateDist(District district) {
-        return null;
+    public int updateDist(District district) {
+        return districtRepository.updateDistrict(district.getDistId(),district.getDistName());
+    }
+
+    @Override
+    public int updateDistrictProvince(District district) {
+        return districtRepository.updateDistrictProvince(district.getDistId(),district.getProvince().getProvinceId());
+    }
+
+    @Override
+    public List<District> getDistrictsByName(String keyword) {
+        return districtRepository.getDistrictsByName(keyword);
     }
 
     @Override

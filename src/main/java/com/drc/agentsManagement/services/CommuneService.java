@@ -8,6 +8,8 @@ public interface CommuneService {
     public Commune saveCom(Commune commune);
     public List<Commune> getAllCom();
     public Commune getCommune(String id);
-    public Commune updateCom(Commune commune);
+    public int updateCom(Commune commune);
+    public List<Commune> getCommunesByName(String keyword);
+    public int updateCommuneVille(Commune commune);
     public boolean deleteCom(String id);
 }

@@ -28,8 +28,13 @@ public class CategorieServiceImpl implements CategorieService {
     }
 
     @Override
-    public Categorie updateCat(Categorie cat) {
-        return null;
+    public int updateCat(Categorie cat) {
+        return categorieRepository.updateCategorie(cat.getCatId(),cat.getCatName(),cat.getCatDescription());
+    }
+
+    @Override
+    public List<Categorie> getCategorieByName(String keyword) {
+        return categorieRepository.getCategorieByName(keyword);
     }
 
     @Override

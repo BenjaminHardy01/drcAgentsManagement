@@ -27,8 +27,33 @@ public class QuartierServiceImpl implements QuartierService{
     }
 
     @Override
-    public Quartier updateQuart(Quartier quartier) {
-        return null;
+    public int updateQuart(Quartier quartier) {
+        return quartierRepository.updateQuartier(quartier.getQuartId(),quartier.getQuartName());
+    }
+
+    @Override
+    public int updateQuartierCite(Quartier quartier) {
+        return quartierRepository.updateQuartierCite(quartier.getQuartId(),quartier.getCite().getCiteId());
+    }
+
+    @Override
+    public int updateQuartierCommune(Quartier quartier) {
+        return quartierRepository.updateQuartierCommune(quartier.getQuartId(),quartier.getCommune().getCommId());
+    }
+
+    @Override
+    public List<Quartier> getQuartiersByCite(String citeId) {
+        return quartierRepository.getQuartiersByCite(citeId);
+    }
+
+    @Override
+    public List<Quartier> getQuartiersByCommune(String comId) {
+        return quartierRepository.getQuartiersByCommune(comId);
+    }
+
+    @Override
+    public List<Quartier> getQuartiersByName(String keyword) {
+        return quartierRepository.getQuartiersByName(keyword);
     }
 
     @Override

@@ -28,6 +28,11 @@ public class Territoire implements Serializable {
     @ManyToOne
     @JoinColumn(name = "dist_id")
     private District district;
+
+    @ManyToOne
+    @JoinColumn(name = "prov_id")
+    private Province province;
+
     @OneToMany(mappedBy = "territoire")
     private List<Cite> cites;
     @OneToMany(mappedBy = "territoire")

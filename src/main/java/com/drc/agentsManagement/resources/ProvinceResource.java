@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/api")
 public class ProvinceResource {
+
     @Autowired
     private ProvinceService provinceService;
 
@@ -33,9 +37,16 @@ public class ProvinceResource {
         return provinceService.getProvince(id);
     }
 
-    public Province updateProv(Province province) {
+    @GetMapping("/provinces/get-by-name/{keyword}")
+    public List<Province> getProvinceByName(@PathVariable String keyword) {
+        return provinceService.getProvinceByName(keyword);
+    }
+
+    @PutMapping("/provinces")
+    public int updateProv(@RequestBody Province province) {
         return provinceService.updateProv(province);
     }
+
     @DeleteMapping("/provinces/{id}")
     public boolean deleteProv(@PathVariable String id) {
         return provinceService.deleteProv(id);

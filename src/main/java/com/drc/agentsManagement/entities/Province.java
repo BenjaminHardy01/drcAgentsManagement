@@ -23,12 +23,24 @@ public class Province implements Serializable {
     @Id
     private String provinceId = UUID.randomUUID().toString();
     private String provinceName;
+    private Long superficie;
+    private Long population;
+    private String chefLieu;
     @OneToMany(mappedBy = "province")
     private List<Ville> villes;
     @OneToMany(mappedBy = "province")
     private List<District> districts;
+
+    @OneToMany(mappedBy = "province")
+    private List<Territoire> territoires;
+
     @OneToMany(mappedBy = "province")
     private List<Agent> agents;
+
+    @JsonIgnore
+    public List<Territoire> getTerritoires() {
+        return territoires;
+    }
 
     @JsonIgnore
     public List<Ville> getVilles() {

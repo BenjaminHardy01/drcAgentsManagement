@@ -27,8 +27,23 @@ public class VillageServiceImpl implements VillageService{
     }
 
     @Override
-    public Village updateVillage(Village village) {
-        return null;
+    public int updateVillage(Village village) {
+        return villageRepository.updateVillage(village.getVillageId(),village.getVillageName(),village.getPopulation());
+    }
+
+    @Override
+    public int updateVillageGroupement(Village village) {
+        return villageRepository.updateVillageGroupement(village.getVillageId(),village.getGroupement().getGroupeId());
+    }
+
+    @Override
+    public List<Village> getVillagesByGroupement(String groupeId) {
+        return villageRepository.getVillagesByGroupement(groupeId);
+    }
+
+    @Override
+    public List<Village> getVillagesByName(String keyword) {
+        return villageRepository.getVillagesByName(keyword);
     }
 
     @Override

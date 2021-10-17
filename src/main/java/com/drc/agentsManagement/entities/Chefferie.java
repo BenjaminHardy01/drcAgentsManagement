@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,23 +22,19 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Groupement implements Serializable {
+public class Chefferie implements Serializable {
     @Id
-    private String groupeId = UUID.randomUUID().toString();
-    private String groupeName;
+    private String cheffId = UUID.randomUUID().toString();
+    private String cheffName;
+    private Long Superficie;
     @ManyToOne
-    @JoinColumn(name = "secteur_id")
-    private Secteur secteur;
-
-    @ManyToOne
-    @JoinColumn(name = "chefferie_id")
-    private Chefferie chefferie;
-
-    @OneToMany(mappedBy = "groupement")
-    private List<Village> villages;
+    @JoinColumn(name = "terre_id")
+    private Territoire territoire;
+    @OneToMany(mappedBy = "chefferie")
+    private List<Groupement> groupements;
 
     @JsonIgnore
-    public List<Village> getVillages() {
-        return villages;
+    public List<Groupement> getGroupements() {
+        return groupements;
     }
 }

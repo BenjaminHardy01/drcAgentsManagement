@@ -28,8 +28,33 @@ public class TerritoireServiceImpl implements TerritoireService{
     }
 
     @Override
-    public Territoire updateTerre(Territoire territoire) {
-        return null;
+    public int updateTerre(Territoire territoire) {
+        return territoireRepository.updateTerritoire(territoire.getTerreId(),territoire.getTerreName());
+    }
+
+    @Override
+    public int updateTerritoireDistrict(Territoire territoire) {
+        return territoireRepository.updateTerritoireDistrict(territoire.getTerreId(),territoire.getDistrict().getDistId());
+    }
+
+    @Override
+    public int updateTerritoireProvince(Territoire territoire) {
+        return territoireRepository.updateTerritoireProvince(territoire.getTerreId(),territoire.getProvince().getProvinceId());
+    }
+
+    @Override
+    public List<Territoire> getTerritoiresByProvince(String provId) {
+        return territoireRepository.getTerritoiresByProvince(provId);
+    }
+
+    @Override
+    public List<Territoire> getTerritoiresByDistrict(String distId) {
+        return territoireRepository.getTerritoiresByDistrict(distId);
+    }
+
+    @Override
+    public List<Territoire> getTerritoiresByName(String keyword) {
+        return territoireRepository.getTerritoiresByName(keyword);
     }
 
     @Override

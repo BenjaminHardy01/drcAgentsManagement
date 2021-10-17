@@ -61,8 +61,8 @@ public class AgentResource {
     public int updateAgentCategorie(@RequestBody Agent agent) {
         return agentService.updateAgentCategorie(agent);
     }
-    @PutMapping("/agents/updateProv")
-    public int updateAgentProvince(Agent agent) {
+    @PutMapping("/agents/update-prov")
+    public int updateAgentProvince(@RequestBody Agent agent) {
         return agentService.updateAgentProvince(agent);
     }
 
