@@ -28,8 +28,18 @@ public class CommuneServiceImpl implements CommuneService{
     }
 
     @Override
-    public Commune updateCom(Commune commune) {
-        return null;
+    public int updateCom(Commune commune) {
+        return communeRepository.updateCommune(commune.getCommId(),commune.getCommName());
+    }
+
+    @Override
+    public List<Commune> getCommunesByName(String keyword) {
+        return communeRepository.getCommunesByName(keyword);
+    }
+
+    @Override
+    public int updateCommuneVille(Commune commune) {
+        return communeRepository.updateCommuneVille(commune.getCommId(),commune.getVille().getVilleId());
     }
 
     @Override

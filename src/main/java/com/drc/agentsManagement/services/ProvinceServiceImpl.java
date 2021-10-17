@@ -26,8 +26,13 @@ public class ProvinceServiceImpl implements ProvinceService{
     }
 
     @Override
-    public Province updateProv(Province province) {
-        return null;
+    public int updateProv(Province province) {
+        return provinceRepository.updateProvince(province.getProvinceId(),province.getProvinceName(),province.getSuperficie(),province.getPopulation(),province.getChefLieu());
+    }
+
+    @Override
+    public List<Province> getProvinceByName(String keyword) {
+        return provinceRepository.getProvinceByName(keyword);
     }
 
     @Override

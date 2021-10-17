@@ -27,8 +27,23 @@ public class SecteurServiceImpl implements SecteurService{
     }
 
     @Override
-    public Secteur updateSect(Secteur secteur) {
-        return null;
+    public int updateSect(Secteur secteur) {
+        return secteurRepository.updateSecteur(secteur.getSecteurId(),secteur.getSecteurName());
+    }
+
+    @Override
+    public int updateSecteurTerritoire(Secteur secteur) {
+        return secteurRepository.updateSecteurTerritoire(secteur.getSecteurId(),secteur.getTerritoire().getTerreId());
+    }
+
+    @Override
+    public List<Secteur> getSecteursByTerritoire(String terreId) {
+        return secteurRepository.getSecteursByTerritoire(terreId);
+    }
+
+    @Override
+    public List<Secteur> getSecteursByName(String keyword) {
+        return secteurRepository.getSecteursByName(keyword);
     }
 
     @Override

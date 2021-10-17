@@ -26,8 +26,23 @@ public class AvenueServiceImpl implements AvenueService{
     }
 
     @Override
-    public Avenue updateAvenue(Avenue avenue) {
-        return null;
+    public int updateAvenue(Avenue avenue) {
+        return avenueRepository.updateAvenue(avenue.getAvenueId(),avenue.getAvenueName());
+    }
+
+    @Override
+    public int updateAvenueQuartier(Avenue avenue) {
+        return avenueRepository.updateAvenueQuartier(avenue.getAvenueId(),avenue.getQuartier().getQuartId());
+    }
+
+    @Override
+    public List<Avenue> getAvenuesByQuartier(String qurtId) {
+        return avenueRepository.getAvenuesByQuartier(qurtId);
+    }
+
+    @Override
+    public List<Avenue> getAvenuesByName(String keyword) {
+        return avenueRepository.getAvenuesByName(keyword);
     }
 
     @Override

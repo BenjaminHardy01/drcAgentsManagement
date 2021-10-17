@@ -8,6 +8,7 @@ public interface ProvinceService {
     public Province saveProv(Province province);
     public List<Province> getAllProv();
     public Province getProvince(String id);
-    public Province updateProv(Province province);
+    public int updateProv(Province province);
+    public List<Province> getProvinceByName(String keyword);
     public boolean deleteProv(String id);
 }

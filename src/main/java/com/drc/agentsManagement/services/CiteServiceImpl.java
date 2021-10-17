@@ -27,8 +27,18 @@ public class CiteServiceImpl implements CiteService{
     }
 
     @Override
-    public Cite updateCite(Cite cite) {
-        return null;
+    public int updateCite(Cite cite) {
+        return citeRepository.updateCite(cite.getCiteId(),cite.getCiteName());
+    }
+
+    @Override
+    public List<Cite> getCiteByName(String keyword) {
+        return citeRepository.getCiteByName(keyword);
+    }
+
+    @Override
+    public int updateCiteTerritoire(Cite cite) {
+        return citeRepository.updateCiteTerritoire(cite.getCiteId(),cite.getTerritoire().getTerreId());
     }
 
     @Override

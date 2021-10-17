@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/api")
 public class GroupementResource {
+
     @Autowired
     private GroupementService groupementService;
 
@@ -31,7 +35,20 @@ public class GroupementResource {
         return groupementService.getGroupe(id);
     }
 
-    public Groupement updateGroupe(Groupement groupement) {
+    @PutMapping("/groupements/update-sect")
+    public int updateGroupementSecteur(@RequestBody Groupement groupement) {
+        return groupementService.updateGroupementSecteur(groupement);
+    }
+    @GetMapping("/groupements/get-by-sect/{sectId}")
+    public List<Groupement> getGroupementsBySecteur(@PathVariable String sectId) {
+        return groupementService.getGroupementsBySecteur(sectId);
+    }
+    @GetMapping("/groupements/get-by-name/{keyword}")
+    public List<Groupement> getGroupementsByName(String keyword) {
+        return groupementService.getGroupementsByName(keyword);
+    }
+    @PutMapping("/groupements")
+    public int updateGroupe(Groupement groupement) {
         return groupementService.updateGroupe(groupement);
     }
     @DeleteMapping("/groupements/{id}")

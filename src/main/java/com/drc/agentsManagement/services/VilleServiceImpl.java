@@ -28,8 +28,23 @@ public class VilleServiceImpl implements VilleService{
     }
 
     @Override
-    public Ville updateVille(Ville ville) {
-        return null;
+    public int updateVille(Ville ville) {
+        return villeRepository.updateVille(ville.getVilleId(),ville.getVilleName(),ville.getPopulation());
+    }
+
+    @Override
+    public int updateVilleProvince(Ville ville) {
+        return villeRepository.updateVilleProvince(ville.getVilleId(),ville.getProvince().getProvinceId());
+    }
+
+    @Override
+    public List<Ville> getVillesByProvince(String provId) {
+        return villeRepository.getVillesByProvince(provId);
+    }
+
+    @Override
+    public List<Ville> getVillesByName(String keyword) {
+        return villeRepository.getVillesByName(keyword);
     }
 
     @Override
